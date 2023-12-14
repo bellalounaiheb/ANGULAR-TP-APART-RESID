@@ -1,0 +1,34 @@
+<form [formGroup]="residenceForm">
+  <table>
+    <div formGroupName="sousgroupe">
+      <tr>
+        <td>Residence ID</td>
+        <td><input formControlName="id">
+          <div *ngIf="idResidence.touched && idResidence.errors">
+            <div *ngIf="idResidence.errors['required']"> <app-errors [message]="'required'" ></app-errors> </div>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>Residence Name</td>
+        <td><input formControlName="name" >
+          <div *ngIf="residenceName.touched && residenceName.errors">
+            <div *ngIf="residenceName.errors['required']"> <app-errors [message]="'required'" ></app-errors> </div>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>Residence address</td>
+        <td><input formControlName="address">
+          <div *ngIf="residenceAddress.touched && residenceAddress.errors">
+            <div *ngIf="residenceAddress.errors['required']"> <app-errors [message]="'required'" ></app-errors> </div>
+          </div>
+        </td>
+      </tr>
+    </div>
+    <div>
+        <td></td>
+        <td><button type="submit" [disabled]="residenceForm.invalid">Save</button></td>
+    </div>
+  </table>
+</form>
